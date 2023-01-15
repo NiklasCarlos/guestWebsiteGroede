@@ -16,6 +16,8 @@ var bisDate = document.getElementById("Bis");
 
 var res_tage = document.getElementById("res_tage");
 
+var preis_pro_nacht;
+
 saison.addEventListener("input",insertValues);
 
 
