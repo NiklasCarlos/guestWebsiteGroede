@@ -16,24 +16,33 @@ var bisDate = document.getElementById("Bis");
 
 var res_tage = document.getElementById("res_tage");
 
-var preis_pro_nacht;
+var preisProNacht = document.getElementById("price_night");
 
 saison.addEventListener("input",insertValues);
-
-
 
 vonDate.addEventListener("input", add_Bis);
 bisDate.addEventListener("input", berechne_Tage);
 
+//preisProNacht.addEventListener("input",preis_pro_nacht);
+
+document.getElementById("price_night").innerHTML =    csv_preismodell.extern[csv_preismodell.saison.indexOf(saison.value)] ;
+
+function preis_pro_nacht(){
+
+    document.getElementById("price_night").innerHTML = csv_preismodell.extern[csv_preismodell.saison.indexOf(saison.value)] ;
 
 
+    
+}
 
 
 function insertValues() {
 
+    preis_pro_nacht();
+
     console.log("insert values");
 
-var tmp_index=csv_preismodell.saison.indexOf(saison.value)
+var tmp_index=csv_preismodell.saison.indexOf(saison.value);
 
 let totalprice = csv_preismodell.extern[tmp_index]*res_tage.value;
 
@@ -95,6 +104,9 @@ function berechne_Tage() {
 
     //insert values in table
     insertValues();
+
+    //insert price night
+    preis_pro_nacht();
 
 }
 
